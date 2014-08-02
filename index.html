@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Git - do init ao push</title>
+
+	<meta name="description" content="Palestra sobre como começar a usar git e primeiros comandos">
+	<meta name="author" content="José Barbosa - @_kiide">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="css/reveal.min.css">
+	<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<style type="text/css">
+	pre { box-shadow: 0 0 !important; }
+	code { box-shadow: 0 0 6px rgba(0, 0, 0, .3);  }
+	</style>
+
+	<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+	<script>
+	if( window.location.search.match( /print-pdf/gi ) ) {
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = 'css/print/pdf.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
+	</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section >
+					<section>
+						<h1>
+							Git
+						</h1>
+						<h3>do init ao push</h3>
+						<p>José Barbosa - <a href="https://twitter.com/_kiide">@_kiide</a></p>
+					</section>
+					<section>
+						<div>
+							<h2>About Me?</h2>
+							<ul>
+								<li><a href="http://en.wikipedia.org/wiki/DevOps">DevOps</a> na <a href="http://arcnet.com.br/">ARCNET Automação Comercial LTDA</a></li>
+								<li>.NET Developer</li>
+								<li>MCP (quase MCSD - Web Apps)</li>
+								<li>Palestrante do .NET Coders</li>
+							</ul>
+						</div>
+						<br />
+						<div>
+							<h3>Contact</h3>
+							<ul>
+								<li><strong>Github</strong>: <a href="https://github.com/kiide">/kiide</a></li>
+								<li><strong>Twitter</strong>: <a href="https://twitter.com/_kiide">@kiide</a></li>
+							</ul>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<div>
+							<img src="imgs/git_logo.png">
+						</div>
+						<a href="http://bit.ly/1nTIhY7">http://bit.ly/1nTIhY7</a>
+					</section>
+					<section>
+						<h3>What is Git?</h3>
+						<ul>
+							<li>SCM como Subversion, TFS (Version Control)</li>
+							<li>Git != Subservsion != TFS</li>
+							<li>Criado por Linus Torvalds</li>
+							<li>Eficiente (escrito em C)</li>
+							<li>Git == Distribuído</li>
+						</ul>
+					</section>
+					<section>
+						<div>
+							<h4>Sistemas de Controle de Versão Centralizados</h4>
+							<img src="imgs/vcs_local.png">
+						</div>
+						<a href="http://bit.ly/1pnz9tZ">http://bit.ly/1pnz9tZ</a>
+					</section>
+					<section>
+						<div>
+							<h4>Sistemas de Controle de Versão Distribuídos</h4>
+							<img src="imgs/vcs_distribuido.png">
+						</div>
+						<a href="http://bit.ly/1pnz9tZ">http://bit.ly/1pnz9tZ</a>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Why use Git?</h3>
+						<div>
+							<ul>
+								<li>Online e Offline</li>
+								<li>Multi-plataforma, gratuito, open source, rápido...</li>
+								<li>Performance (é muito importante, isso afeta como você trabalha e a qualidade)</li>
+								<li>Depois que você aprende, você não vive mais sem!</li>
+								<li>Github <3<3<3</li>
+							</ul>
+						</div>
+					</section>
+					<section>
+						<a href="http://github.com">http://github.com/</a>
+						<img src="imgs/github.png">
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Installation</h3>
+					</section>
+					<section>
+						<h4>Windows</h4>
+						<a href="http://git-scm.com/">http://git-scm.com/</a> |
+						<a href="http://msysgit.github.io">http://msysgit.github.io/</a>
+						<img src="imgs/msysgit.png">
+					</section>
+					<section>
+						<h4>Windows - Chocolatey</h4>
+						<a href="https://chocolatey.org/">https://chocolatey.org/</a>
+						<img src="imgs/chocolatey.png">
+					</section>
+					<section>
+						<h4>Ubuntu</h4>
+						<pre>
+							<code class="bash">
+	$ sudo apt-get install git
+							</code>
+				        </pre>
+					</section>
+					<section>
+						<h4>Mac</h4>
+						<pre>
+							<code class="bash">
+	$ brew install git
+							</code>
+				        </pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>First Commands</h3>
+						<ul>
+				        	<li>Leia o <a href="http://git-scm.com/docs">manual do git</a> para os comandos mais usados</li>
+				        	<li>Leia o feedback do git</li>
+						</ul>
+					</section>
+					<section>
+						<p>git help &#60;comand&#62;</p>
+						<pre>
+							<code class="bash">
+	$ git help
+	$ git help init
+							</code>
+				        </pre>
+					</section>
+					<section>
+						<p>git init</p>
+						<pre>
+							<code class="bash">
+	$ git init
+							</code>
+				        </pre>
+					</section>
+					<section>
+						<p>git clone &#60;repository&#62;</p>
+						<pre>
+							<code class="bash">
+	$ git clone https://github.com/twbs/bootstrap.git
+							</code>
+				        </pre>
+					</section>
+					<section>
+						<p>git status</p>
+						<pre>
+							<code class="bash">
+	$ git status
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p>git diff</p>
+						<pre>
+							<code class="bash">
+	$ git diff
+	$ git diff --staged
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p>git add &#60;filter&#62;</p>
+						<pre>
+							<code class="bash">
+	$ git add .
+							</code>
+				        </pre>
+					</section>
+					<section>
+						<p>git commit &#60;options&#62;</p>
+						<pre>
+							<code class="bash">
+	$ git commit -m "First commit"
+							</code>
+				        </pre>
+					</section>
+				</section>
+				<section>
+					<div>
+						<h3>File Status Lifecycle</h3>
+						<img src="imgs/file_lifecycle.png">
+					</div>
+					<a href="http://slidesha.re/WKZWqR">http://slidesha.re/WKZWqR</a>
+				</section>
+				<section>
+					<div>
+						<h3>Git Areas</h3>
+						<img src="imgs/git_areas.png">
+					</div>
+					<a href="http://bit.ly/1nSIKuK">http://bit.ly/1nSIKuK</a>
+				</section>
+				<section>
+					<div>
+						<h3>Git Workflow</h3>
+						<img src="imgs/git_workflow.png">
+					</div>
+					<a href="http://bit.ly/MgjmhR">http://bit.ly/MgjmhR</a>
+				</section>
+				<section>
+					<section>
+						<h3>Undo</h3>
+					</section>
+					<section>
+						<p>git commit --amend</p>
+						<pre>
+							<code class="bash">
+	$ git commit --amend -m "Nova mensagem do commit"
+							</code>
+				        </pre>
+					</section>
+					<section>
+						<p>git reset HEAD &#60;file&#62;</p>
+						<pre>
+							<code class="bash">
+	$ git reset HEAD index.html
+							</code>
+				        </pre>
+					</section>
+					<section>
+						<p>git checkout -- &#60;file&#62;</p>
+						<pre>
+							<code class="bash">
+	$ git checkout index.html
+							</code>
+						</pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h3>Remotes</h3>
+					</section>
+					<section>
+						<p>git remote</p>
+						<pre>
+							<code class="bash">
+	$ git remote
+	$ git remote -v
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p>git remote add [name] [url]</p>
+						<pre>
+							<code class="bash">
+	$ git remote add github https://github.com/twbs/bootstrap.git
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p>git pull [name]</p>
+						<pre>
+							<code class="bash">
+	$ git pull
+	$ git pull origin
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p>git push [name] [branch]</p>
+						<pre>
+							<code class="bash">
+	$ git push
+	$ git push origin master
+							</code>
+						</pre>
+					</section>
+				</section>
+				<section>
+					<h3>Links & Resources</h3>
+					<ul>
+						<li><a href="http://git-scm.com/">http://git-scm.com/</a></li>
+						<li><a href="http://git-scm.com/book">http://git-scm.com/book</a></li>
+						<li><a href="https://www.youtube.com/watch?v=4XpnKHJAok8">Tech Talk: Linus Torvalds on git</a></li>
+						<li><a href="http://rogerdudler.github.io/git-guide/">git - the simple guide</a></li>
+						<li><a href="http://www.akitaonrails.com/2010/08/17/screencast-comecando-com-git">[Screencast] Começando com Git</a></li>
+						<li><a href="https://try.github.io/levels/1/challenges/1">Try Git</a></li>
+						<li><a href="http://marklodato.github.io/visual-git-guide/index-en.html">A Visual Git Reference</a></li>
+						<li><a href="https://www.youtube.com/watch?v=sygNpsx2ejQ">Porque você PRECISA aprender GIT - MVP Giovanni Bassi</a></li>
+						<li><a href="https://help.github.com/">Github Help</a></li>
+					</ul>
+				</section>
+				<section>
+					<h3>Questions?</h3>
+					<p>José Barbosa - <a href="https://twitter.com/_kiide">@kiide</a></p>
+					<small>Fork me and pull request!</small>
+				</section>
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+</script>
+
+</body>
+</html>
